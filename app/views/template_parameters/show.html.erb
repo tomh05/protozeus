@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @template_parameter.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @template_parameter.param_type %>
+</p>
+<%= link_to 'Edit', [:edit, @template, @template_parameter] %> |
+<%= link_to 'Back', template_template_parameters_path %>

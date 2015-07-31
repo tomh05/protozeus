@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Card:</strong>
+  <%= @card_instance.card %>
+</p>
+
+<p>
+  <strong>Article:</strong>
+  <%= @card_instance.article_id %>
+</p>
+<p>
+  <strong>Parent ID:</strong>
+  <%= @card_instance.parent_id %>
+</p>
+<p>
+<strong>Sort Order:</strong>
+  <%= @card_instance.sort_order %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_card_instance_path(@card_instance) %> |
+<%= link_to 'Back', card_instances_path %>

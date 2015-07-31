@@ -1,0 +1,47 @@
+<%= form_for(@card_instance) do |f| %>
+    <% if @card_instance.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@card_instance.errors.count, "error") %> prohibited this card_instance from being saved:</h2>
+
+            <ul>
+                <% @card_instance.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <% if !params.has_key?(:article) %>
+        <div class="field">
+            <%= f.label :article_id %><br>
+            <%= f.text_field :article_id %>
+        </div>
+
+    <% else %>
+        <%=   f.hidden_field :article_id, value: params[:article] %>
+    <% end %>
+    <div class="field">
+        <%= f.label :card_id %><br>
+    <%= f.select(:card_id, @cards.collect { |t| [ t.name, t.id] } ) %>
+    </div>
+
+    <% if !params.has_key?(:parent) %>
+    <div class="field">
+        <%= f.label :parent_id %><br>
+        <%= f.text_field :parent_id %>
+    </div>
+<% else %>
+         <%=f.hidden_field :parent_id, value:  params[:parent]%>
+        <% end %>
+
+    <div class="field">
+        <%= f.label :sort_order %><br>
+        <%= f.text_field :sort_order %>
+    </div>
+
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+
+
+<% end %>

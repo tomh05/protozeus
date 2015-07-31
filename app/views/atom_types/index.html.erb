@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Atom Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @atom_types.each do |atom_type| %>
+      <tr>
+        <td><%= atom_type.name %></td>
+        <td><%= link_to 'Show', atom_type %></td>
+        <td><%= link_to 'Edit', edit_atom_type_path(atom_type) %></td>
+        <td><%= link_to 'Destroy', atom_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Atom type', new_atom_type_path %>

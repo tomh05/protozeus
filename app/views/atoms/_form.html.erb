@@ -1,0 +1,35 @@
+<%= form_for(@atom) do |f| %>
+  <% if @atom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@atom.errors.count, "error") %> prohibited this atom from being saved:</h2>
+
+      <ul>
+      <% @atom.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :atom_type_id %><br>
+    <%= f.select(:atom_type_id, @atom_types.collect { |t| [ t.name, t.id] } ) %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

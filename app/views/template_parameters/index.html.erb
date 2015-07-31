@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Template Parameters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @template_parameters.each do |template_parameter| %>
+      <tr>
+        <td><%= template_parameter.name %></td>
+        <td><%= template_parameter.param_type %></td>
+        <td><%= link_to 'Show', [@template,template_parameter] %></td>
+        <td><%= link_to 'Edit', [:edit, @template, template_parameter] %></td>
+        <td><%= link_to 'Destroy', template_template_parameter_path(@template,template_parameter), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Template parameter', new_template_template_parameter_path %>
