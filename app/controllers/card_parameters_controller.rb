@@ -4,7 +4,7 @@ class CardParametersController < ApplicationController
   # GET /card_parameters
   # GET /card_parameters.json
   def index
-    @card_parameters = CardParameter.all
+    @card = Card.find(params[:card_id])
   end
 
   # GET /card_parameters/1
@@ -64,6 +64,6 @@ class CardParametersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_parameter_params
-      params.require(:card_parameter).permit(:name, :value, :card_id)
+      params.require(:card_parameter).permit(:name, :value, :atom_id, :card_id)
     end
 end

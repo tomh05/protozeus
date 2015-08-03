@@ -4,7 +4,9 @@
 
 <p>
   <strong>Cards:</strong>
+  <ul class="sortable">
   <%= edit_card_instances_tree_for @card_instances %>
+  </ul>
 
 <%= link_to 'Add Card at Bottom', new_card_instance_path(article: @article) %> |
 </p>

@@ -5,7 +5,7 @@ class TemplateParametersController < ApplicationController
   # GET /template_parameters.json
   def index
       @template = Template.find(params[:template_id])
-      @template_parameters = TemplateParameter.all
+      @template_parameters = TemplateParameter.where(template_id: params[:template_id])
   end
 
   # GET /template_parameters/1

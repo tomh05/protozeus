@@ -20,6 +20,23 @@
     <% puts "foo" %>
     <%= f.select(:template_id, @templates.collect { |t| [ t.name, t.id] } ) %>
   </div>
+  <div class="field">
+    <table>
+        <% @card.card_parameters.each do |card_parameter| %>
+            <tr>
+            <%= fields_for "card_parameters[]", card_parameter do |card_parameter_fields| %>
+                <td>
+                    <%= card_parameter_fields.object.name %>
+                </td>
+                <td>
+                    <%= card_parameter_fields.text_field :value %>
+                </td>
+            <% end %>
+            </tr>
+        <% end %>
+    </table>
+
+  </div>
 
   <div class="actions">
     <%= f.submit %>

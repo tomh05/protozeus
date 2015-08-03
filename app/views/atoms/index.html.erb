@@ -19,7 +19,7 @@
       <tr>
         <td><%= atom.id %></td>
         <td><%= atom.title %></td>
-        <td><%= atom.atom_type_id %></td>
+        <td><%= @atom_types.find(atom.atom_type_id).name %></td>
         <td><%= atom.content %></td>
         <td><%= atom.url %></td>
         <td><%= link_to 'Show', atom %></td>

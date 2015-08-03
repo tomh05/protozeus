@@ -10,7 +10,7 @@
 </p>
 <p>
   <strong>Type:</strong>
-  <%= @atom.atom_type_id %>
+  <%= @atom_types.find(@atom.atom_type_id).name %>
 </p>
 <p>
   <strong>Content:</strong>

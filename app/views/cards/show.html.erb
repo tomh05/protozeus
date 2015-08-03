@@ -8,6 +8,29 @@
   <strong>Template:</strong>
   <td><%= @templates.find(@card.template_id).name %></td>
 </p>
+<p>
+  <strong>Parameters:</strong>
+</p>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @card_parameters.each do |card_parameter| %>
+      <tr>
+        <td><%= card_parameter.name %></td>
+        <td><%= card_parameter.value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 
 
 <%= link_to 'Edit', edit_card_path(@card) %> |

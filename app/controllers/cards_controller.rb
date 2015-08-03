@@ -12,6 +12,7 @@ class CardsController < ApplicationController
   # GET /cards/1.json
   def show
     @templates  = Template.all
+    @card_parameters = CardParameter.where(card_id: params[:id])
   end
 
   # GET /cards/new
@@ -23,6 +24,7 @@ class CardsController < ApplicationController
   # GET /cards/1/edit
   def edit
       @templates = Template.all
+    @card_parameters = CardParameter.where(card_id: params[:id])
   end
 
   # POST /cards
@@ -34,8 +36,14 @@ class CardsController < ApplicationController
     template_parameters.each do |template_parameter|
         puts "para"
         puts template_parameter.id
+        #<td><%= template_parameter.id %></td>
+        #<td><%= template_parameter.template_id %></td>
+        #<td><%= template_parameter.name %></td>
+        #<td><%= template_parameter.param_type %></td>
+
         # TODO: make parameters
-        #@card_param = @card.card_parameters.new(template_parameter)
+        new_card_params = [ name: template_parameter.name]
+        @card_param = @card.card_parameters.new(new_card_params)
     end
     #@card = Card.card_parameters.new(card_params)
 
@@ -55,6 +63,20 @@ class CardsController < ApplicationController
   def update
     respond_to do |format|
       if @card.update(card_params)
+          #params[:card_parameters].each do |card_parameter|
+          #    puts @card
+          #    puts @card.card_parameters.each.update(card_parameter
+          #    @card.card_parameters.find_by_id(card_parameter).update(card_parameter)
+          #    puts  card_parameter
+          #end
+          @card.card_parameters.each do |card_parameter|
+              puts "my param is"
+              # Find the corresponding form entry
+              new_value =  params[:card_parameters][card_parameter.id.to_s]["value"]
+              card_parameter.update(value: new_value)
+              #update(card_parameter
+              end
+              
         format.html { redirect_to @card, notice: 'Card was successfully updated.' }
         format.json { render :show, status: :ok, location: @card }
       else

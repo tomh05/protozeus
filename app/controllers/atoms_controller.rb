@@ -5,11 +5,13 @@ class AtomsController < ApplicationController
   # GET /atoms.json
   def index
     @atoms = Atom.all
+    @atom_types = AtomType.all
   end
 
   # GET /atoms/1
   # GET /atoms/1.json
   def show
+    @atom_types = AtomType.all
   end
 
   # GET /atoms/new

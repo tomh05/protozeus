@@ -16,9 +16,9 @@
       <tr>
         <td><%= card_parameter.name %></td>
         <td><%= card_parameter.value %></td>
-        <td><%= link_to 'Show', card_parameter %></td>
-        <td><%= link_to 'Edit', edit_card_parameter_path(card_parameter) %></td>
-        <td><%= link_to 'Destroy', card_parameter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@card, card_parameter] %></td>
+        <td><%= link_to 'Edit', [:edit, @card, card_parameter] %></td>
+        <td><%= link_to 'Destroy', card_card_parameter_path(@card,card_parameter), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
