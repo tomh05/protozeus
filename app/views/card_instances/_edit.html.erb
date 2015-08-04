@@ -1,8 +1,8 @@
-<li class="child"> <%= card_instance.id %>
+<div class = "draggableCard">
+    <%= card_instance.id %>
 Card ID: <%= card_instance.card_id %>
-<p><%= link_to 'Show', card_instance %></p>
-<p><%= link_to 'Edit', edit_card_instance_path(card_instance) %></p>
-<p><%= link_to 'Delete', card_instance, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-<p><%= link_to 'Add Child', new_card_instance_path(article: @article,parent:card_instance) %> </p>
-
-</li>
+<p><%= link_to 'Show', card_instance %> |
+<%= link_to 'Edit', edit_card_instance_path(card_instance) %> |
+<%= link_to 'Delete', card_instance, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Add Child', new_card_instance_path(article: @article,parent:card_instance) %> </p>
+</div>

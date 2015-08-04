@@ -3,10 +3,18 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #
 #
-(($) ->
-    console.log("setting sortable")
-    $(".sortable").sortable
-    $(".sortable").disableSelection
-
-
-) jQuery
+$(document).ready ->
+    $('ol.sortable').nestedSortableTree
+        debug: true
+        forcePlaceholderSize: true
+        handle: 'div'
+        helper: 'clone'
+        items: 'li'
+        opacity: .75
+        placeholder: 'placeholder'
+        revert: 150
+        maxLevels: 3
+        tabSize: 55
+        tolerance: 'pointer'
+        toleranceElement: '> div'
+    return
